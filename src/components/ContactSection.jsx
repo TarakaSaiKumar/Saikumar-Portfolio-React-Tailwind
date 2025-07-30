@@ -7,17 +7,39 @@ export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xblkkgva", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
       });
-      setIsSubmitting(false); 
-    }, 1500);
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        e.target.reset(); }
+      else{ 
+        toast({
+          title: "Failed to send",
+          description: "Please try again later or check your network.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      });
+    }
   };
 
   return (
@@ -88,7 +110,7 @@ export const ContactSection = () => {
                 <a href="#" target="_blank" rel="noopener noreferrer">
                   <Linkedin />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/TarakaSaiKumar" target="_blank" rel="noopener noreferrer">
                   <Github />
                 </a>
               </div>
@@ -98,8 +120,7 @@ export const ContactSection = () => {
           {/* Right: Contact Form */}
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            <form className="space-y-6" action="https://formspree.io/f/xblkkgva"
-               method="POST" onSubmit={handleSubmit}>
+            <form className="space-y-6"  onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name
