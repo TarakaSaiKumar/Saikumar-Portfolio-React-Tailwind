@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast"; // ✅ Ensure this hook exists
+import { useToast } from "@/hooks/use-toast"; 
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -16,7 +16,7 @@ export const ContactSection = () => {
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      setIsSubmitting(false); // ✅ Corrected from true to false
+      setIsSubmitting(false); 
     }, 1500);
   };
 
