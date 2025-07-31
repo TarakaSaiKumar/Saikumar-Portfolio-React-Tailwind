@@ -9,16 +9,16 @@ const Projects = [
        image:"./Projects/Spotify.jpg",
        tags: ["HTML", "CSS", "Javascript"],
        denoUrl: "#",
-       githubUrl: "#"
+       githubUrl: "https://github.com/TarakaSaiKumar/Spotify-Clone"
     },
      {
        id:2,
        title: "Wanderlust",
        description: "Wanderlust is a travel website that lets people discover and review cool places to stay around the world. Users can sign up, log in safely, and their sessions are stored securely.",
        image:"./Projects/Wanderlust.jpg",
-       tags: ["HTMl", "Bootstrap", "Javascript", "Node.js", "Express.js", "Mongodb"],
+       tags: ["HTML", "Bootstrap", "Javascript", "Node.js", "Express.js", "Mongodb"],
        denoUrl: "https://major-project-6ha4.onrender.com/listings",
-       githubUrl: "#"
+       githubUrl: "https://github.com/TarakaSaiKumar/Major-Project"
     }
 
 ]
